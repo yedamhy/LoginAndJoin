@@ -3,7 +3,9 @@
 
 # 실행
 Root 에서 'npm start'
+<br>
 (⚠️ DB 설정 : 3307 port로 users table 하단 다이어그램 참고해서 생성)
+<br>
 `.env` 파일을 다음과 같이
 ```
 MYSQL_HOST=localhost
