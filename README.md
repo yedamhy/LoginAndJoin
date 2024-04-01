@@ -1,6 +1,21 @@
 # LoginAndJoin
 회원가입 및 로그인 구현하기 **with Node.js**
 
+# 실행
+Root 에서 'npm start'
+(⚠️ DB 설정 : 3307 port로 users table 하단 다이어그램 참고해서 생성)
+`.env` 파일을 다음과 같이
+```
+MYSQL_HOST=localhost
+MYSQL_PORT=3307
+MYSQL_USERID=dev01
+MYSQL_PASSWORD=1234
+MYSQL_DB=hw
+MYSQL_LIMIT=10
+JWT_SECRET='yedamhaha'
+```
+DB 접근 계정과 Password를 맞게 생성합니다.
+
 ## 🖥️ 화면
 ![image](https://github.com/yedamhy/LoginAndJoin/assets/87516405/c989dcc3-5c86-4a94-bde8-b1fe55ba7946)
 ![image](https://github.com/yedamhy/LoginAndJoin/assets/87516405/003aec22-80f5-4585-be3b-e374675bc420)
@@ -27,3 +42,47 @@
 **MYSQL** 이용, 회원가입 시 **비밀번호**는 **암호화** 되어 **DB에 저장**
 
 ![image](https://github.com/yedamhy/LoginAndJoin/assets/87516405/761bc2d1-1a59-434e-9329-4e608671da51)
+
+## 📂 File 
+### Front-End
+- `public/scripts/clinetLogin.js`
+  
+    - **로그인** 페이지의 **클라이언트 로직**을 담당
+    - 사용자의 ID와 비밀번호 입력을 받아 **서버에 로그인 요청**
+     - 로그인 성공 시, 사용자가 **'로그인 유지'를 선택**했을 경우 **토큰을 로컬 스토리지에 저장**합니다.
+     - 
+- `public/scripts/clientJoin.js`
+    
+  - **회원가입** 페이지의 **클라이언트 로직**을 처리
+  - 사용자의 **입력 검증**, 아이디 **중복 확인 요청**, **회원가입 요청**을 **서버에 전송**
+  - 사용자의 입력에 따라 적절한 메시지를 표시하고, 조건을 만족하는 경우에만 **회원가입 버튼을 활성화**
+
+
+### Back-End
+- `routes/api/login.js`
+
+  - **로그인 처리를 담당**
+  - 사용자의 **ID와 비밀번호**가 데이터베이스에 있는 정보와 **일치하는지 확인**
+  - 로그인 성공 시 **JWT 토큰을 생성**하고, **'로그인 유지'가 선택**되었을 때 해당 **토큰을 쿠키에 저장**합니다.
+
+- `routes/api/join.js`
+
+  - **회원가입 관련 라우팅과 로직을 처리**
+  - 사용자 **ID의 중복 여부**를 확인하고, **사용자의 정보를 데이터베이스에 저장**하는 기능을 담당
+  - 비밀번호는 bcrypt를 사용하여 **해시 처리한 후 저장**
+
+- `routes/token.js`
+
+  - **JWT 토큰**을 **생성**하고 **검증**
+  - 사용자 정보를 바탕으로 **토큰을 발행**하며, 토큰 검증 미들웨어도 포함
+    
+- `routes/index.js`
+
+  - 애플리케이션의 **메인 라우팅 파일**
+  - 홈페이지 **라우팅을 처리**하고, **JWT 토큰의 유효성**을 검증하여 **로그인 여부**에 따라 적절한 페이지를 제공
+
+- `app.js`
+  
+  - 익스프레스 앱의 주요 설정을 포함
+  - 라우터, 미들웨어, 뷰 엔진, 정적 파일 경로 설정 등 애플리케이션의 기본 구조를 정의
+
