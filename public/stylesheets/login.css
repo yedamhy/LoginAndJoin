@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --padding: 60px;
+}
+.box {
+    position: relative;
+    margin: 50px auto;
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--padding);
+    background-color: #c4dfff;
+    border-radius: 7px;
+}
+
+.box input,
+.box button {
+    padding: 15px;
+    font-size: 1.2em;
+    border: none;
+}
+.box input {
+    margin-bottom: 15px;
+}
+.box button {
+    background-color: #ffe4c4;
+    border-radius: 4px;
+    margin-bottom : 15px;
+}
+
+#signInButton{
+    color: #547fb2;
+}
+
+#signUpButton{
+    background-color: #86acd9;
+    color: #fff;
+
+}
+
+.chk_box { display: block; position: relative; padding-left: 25px; margin-bottom: 25px; cursor: pointer; font-size: 14px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+
+/* 기본 체크박스 숨기기 */
+.chk_box input[type="checkbox"] { display: none; }
+
+/* 선택되지 않은 체크박스 스타일 꾸미기 */
+.on { width: 20px; height: 20px; background: #fff; position: absolute; top: 0; left: 0; }
+
+/* 선택된 체크박스 스타일 꾸미기 */
+.chk_box input[type="checkbox"]:checked + .on { background: #86acd9; }
+.on:after { content: ""; position: absolute; display: none; }
+.chk_box input[type="checkbox"]:checked + .on:after { display: block; }
+.on:after { width: 6px; height: 10px; border: solid #fff; border-width: 0 2px 2px 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); position: absolute; left: 6px; top: 2px; }

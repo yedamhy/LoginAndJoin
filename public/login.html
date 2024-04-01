@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="stylesheets/login.css">
+</head>
+<body>
+<div class="box">
+    <input type="text" placeholder="ID" />
+    <input type="password" placeholder="Password" />
+
+    <button id="signInButton">Sign in</button>
+    <!-- 로그인 유지 체크박스 추가 -->
+    <label for="keepLogin" class="chk_box">
+        <input type="checkbox" id="keepLogin" checked="checked" />
+        <span class="on"></span>
+        KEEP LOGIN
+    </label>
+    <!-- Sign Up 버튼 추가 -->
+    <button id="signUpButton" onclick="location.href='join.html'">Sign up</button>
+
+</div>
+<script src="scripts/clientLogin.js"></script>
+</body>
+</html>

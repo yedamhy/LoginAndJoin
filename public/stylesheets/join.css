@@ -1,0 +1,73 @@
+/*. join*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --padding: 60px;
+}
+
+.box {
+    position: relative;
+    margin: 50px auto;
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--padding);
+    background-color: #c4dfff;
+    border-radius: 7px;
+}
+
+.box input,
+.box button {
+    padding: 15px;
+    font-size: 1.2em;
+    border: none;
+}
+.box input {
+    margin-top: 12px;
+}
+.box button {
+    background-color: #ffe4c4;
+    color: #547fb2;
+    border-radius: 4px;
+}
+
+.username-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0; /* 하단 여백을 제거 또는 줄임 */
+}
+
+
+.username-container input{
+    flex-grow: 1;
+    margin-right: 8px;
+}
+
+.username-container button {
+    height: 52px; /* 버튼과 입력란의 높이를 동일하게 설정합니다. */
+    padding: 10px; /* 여백을 조정하여 두 요소의 크기를 조정할 수 있습니다. */
+    border: 1px solid #ccc; /* 경계선을 추가하여 높이 문제를 시각적으로 파악할 수 있습니다. */
+    margin-top: 12px;
+}
+
+.username-container button {
+    /* 버튼의 기타 스타일링 */
+    background-color: #ffe4c4;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none; /* 버튼의 기본 경계선을 제거합니다. */
+}
+
+/* useridMessage 스타일 추가 */
+#useridMessage {
+    color: red;
+    font-size: small;
+    margin-top: 0; /* 상단 여백 설정 */
+    margin-bottom: 10px; /* 필요한 경우 하단 여백 추가 */
+    margin-right : 2px;
+}
